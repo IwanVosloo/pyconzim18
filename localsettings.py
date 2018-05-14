@@ -50,4 +50,35 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
+WAFER_MENUS += (
+    {"menu": "about", "label": _("About"),
+     "items": []},
+    {"name": "venue", "label": _("Venue"),
+     "url": reverse_lazy("wafer_page", args=("venue",))},
+    {"menu": "sponsors", "label": _("Sponsors"),
+     "items": []},
+    {"menu": "talks", "label": _("Talks"),
+     "items": [
+         #{"name": "schedule", "label": _("Schedule"),
+         # "url": reverse_lazy("wafer_full_schedule")},
+         {"name": "accepted-talks", "label": _("Accepted Talks"),
+          "url": reverse_lazy("wafer_users_talks")},
+         {"name": "speakers", "label": _("Speakers"),
+          "url": reverse_lazy("wafer_talks_speakers")},
+        ]},
+    {"menu": "news", "label": _("News"),
+     "items": []},
+    # {"name": "twitter", "label": "Twitter",
+    #  "image": "/static/img/twitter.png",
+    #  "url": "https://twitter.com/pycon_zim"},
+    # {"name": "googleplus", "label": "Google+",
+    #  "image": "/static/img/googleplus.png",
+    #  "url": "https://plus.google.com/114279924327039493110"},
+    # {"name": "facebook", "label": "Facebook",
+    #  "image": "/static/img/facebook.png",
+    #  "url": "https://www.facebook.com/pyconzim"},
+)
+
+WAFER_CONFERENCE_NAME = 'PyConZim2018'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 WAFER_TALKS_OPEN = True
