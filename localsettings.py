@@ -34,7 +34,7 @@ SECRET_KEY = 'e2o61*%#$%h^v=+-ery1tr2@x-!d!^s$yg1jfdg12vhh7$ecca'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -50,9 +50,21 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pyconzim',
+        'USER': 'pyconzim',
+        'PASSWORD': 'pyconzim',
+        'HOST': 'db'
+    }
+}
+
 WAFER_MENUS += (
     {"menu": "about", "label": _("About"),
-     "items": []},
+     "items": [
+         {"name": "young-coders", "label": _("Young Coders")}
+         ]},
     {"name": "venue", "label": _("Venue"),
      "url": reverse_lazy("wafer_page", args=("venue",))},
     {"menu": "sponsors", "label": _("Sponsors"),
@@ -79,6 +91,5 @@ WAFER_MENUS += (
     #  "url": "https://www.facebook.com/pyconzim"},
 )
 
-WAFER_CONFERENCE_NAME = 'PyConZim2018'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 WAFER_TALKS_OPEN = True

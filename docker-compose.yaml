@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: pyconzim
+      POSTGRES_PASSWORD: pyconzim
+      POSTGRES_DB: pyconzim
+  web:
+    build: .
+    ports:
+      - "80:80" 
+      - "8000:8000"
+    depends_on:
+      - db
+

@@ -1,4 +1,15 @@
 body {
-  font-size: 16px;
-  font-family: 'Source Sans Pro';
+    padding-top: 100px;
+    /* font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; */
+    font-family-sans-serif:      "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+.navbar-logo {
+  height: 60px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
