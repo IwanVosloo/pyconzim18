@@ -45,20 +45,21 @@ TEMPLATES[0]['DIRS'] = (
     os.path.join(BASE_DIR, 'templates'),
     ) + TEMPLATES[0]['DIRS']
 
-STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = (
+#         os.path.join(BASE_DIR, 'static'),)
 
 STATIC_URL = '/static/'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pyconzim',
-        'USER': 'pyconzim',
-        'PASSWORD': 'pyconzim',
-        'HOST': 'db'
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'pyconzim',
+#         'USER': 'pyconzim',
+#         'PASSWORD': 'pyconzim',
+#         'HOST': 'db'
+#     }
+# }
 
 WAFER_MENUS += (
     {"menu": "about", "label": _("About"),
