@@ -11,10 +11,12 @@ RUN set -ex \
     musl-dev \
     libgcc \
     gcc \
-    nginx
+    nginx \
+    yarn
 RUN pip install -U pip \
     && LIBRARY_PATH=/lib:/usr/lib /bin/sh -c "pip install -U  --no-cache-dir -r requirements.txt --timeout 120 " \
     && LIBRARY_PATH=/lib:/usr/lib /bin/sh -c "pip install -U  --no-cache-dir django==1.11 --timeout 120 "
+Run yarn install
 # Set the project directory for the source code to:  /home/django
 WORKDIR /home/django/
 RUN rm /etc/nginx/conf.d/default.conf 
