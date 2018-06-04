@@ -1,40 +1,47 @@
-{% load sponsors %}
 {% load static from staticfiles %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>{{ WAFER_CONFERENCE_NAME }}</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'vendor/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
-    <link href="{% static 'vendor/@fortawesome/fontawesome-free-webfonts/css/fontawesome.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/@fortawesome/fontawesome-free-webfonts/css/fa-solid.css' %}" rel="stylesheet">
-    <link href="{% static 'css/pyconzim.css' %}" rel="stylesheet" media="screen">
-    <link href="{% static 'css/wafer.css' %}" rel="stylesheet" media="screen">
-    <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon">
-    <link href="//fonts.googleapis.com/css?family=Alegreya|Pacifico|Oswald|PT+Sans|Source+Sans+Pro" rel="stylesheet" type="text/css">
-    {% block extra_head %}{% endblock %}
+  <title>{% block title %}{{ WAFER_CONFERENCE_NAME }}{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'vendor/bootstrap/dist/css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static 'css/pyconzim.css' %}" rel="stylesheet">
+  <link href="{% static 'css/wafer.css' %}" rel="stylesheet" media="screen">
+  <link href="{% static 'css/main.css' %}" rel="stylesheet" media="screen">
+
+  {% block extra_head %}{% endblock %}
 </head>
 <body>
-    {% include "wafer/nav.html" %}
-    <div id="wrap">
-        <div id="main" class="container">
-{% block content %}
-    <h1>{{ WAFER_CONFERENCE_NAME }}</h1>
-{% endblock %}
-          <br clear="all">
-        </div>
-        <div id="logos" class="container">
-        </div>
-        <div id="legal" class="container">
-          &copy; 2018 Python Zimbabwe.
-        </div>
-        <div id="logo_bottom"><img src="{{ STATIC_URL }}img/logo_bottom.png" /></div>
-    </div>
-    <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
-    <script src="{% static 'vendor/popper.js/dist/umd/popper.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
-    {% block extra_foot %}{% endblock %}
+  {% include "wafer/nav.html" %}
+  <div id="main" class="{% block main_class %}{% endblock %}">
+     {% if messages %}
+       <div class="messages container">
+         {% for message in messages %}
+           <div class="alert
+             {% if message.tags == 'error' %}
+               alert-danger
+             {% elif message.tags %}
+               alert-{{ message.tags }}
+             {% endif %}">
+             {{ message }}
+           </div>
+         {% endfor %}
+       </div>
+     {% endif %}
+
+     {% block jumbotron_content %}{% endblock %}
+
+     <div class="container {% block container_class %}{% endblock %}">
+       {% block content %}
+         <h1>{{ WAFER_CONFERENCE_NAME }}</h1>
+       {% endblock %}
+     </div>
+
+   </div>
+
+   <script src="{% static 'js/debconf18.js' %}"></script>
+   {% block extra_foot %}{% endblock %}
 </body>
 </html>

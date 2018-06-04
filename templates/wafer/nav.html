@@ -1,6 +1,6 @@
+{% load static from staticfiles %}
 {% load i18n %}
-
-<nav class="navbar navbar-expand-sm fixed-top navbar-light bg-light d-print-none {{ WAFER_NAVIGATION_VISIBILITY }}">
+<nav class="navbar navbar-light navbar-expand-lg d-print-none {{ WAFER_NAVIGATION_VISIBILITY }}">
   <div class="container">
     {% block navtogglebutton %}
       <button type="button" class="navbar-toggler navbar-toggler-right"
@@ -12,8 +12,7 @@
     {% endblock navtogglebutton %}
 
     {% block navtitle %}
-      <img class="navbar-brand navbar-logo" src="/static/images/logo/pyconzim.png" alt="Home" >
-      <a class="navbar-brand" href="{% url 'wafer_page' %}">PyConZim 2018</a>
+      <a class="navbar-brand" href="{% url 'wafer_page' %}"><img src="{% static 'img/logo.svg' %}" alt="{{ WAFER_CONFERENCE_NAME }}"></a>
     {% endblock navtitle %}
 
     <div class="collapse navbar-collapse" id="wafer-navbar-collapse">
@@ -64,6 +63,7 @@
                   <li><a class="dropdown-item" href="{% url 'auth_logout' %}">
                     {% trans 'Log out' %}
                   </a></li>
+                    </a></li>
                   {% if user.is_staff %}
                   <li><a class="dropdown-item" href="{% url 'admin:index' %}">
                     {% trans 'Site admin' %}

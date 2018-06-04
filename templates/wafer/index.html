@@ -1,7 +1,139 @@
 {% extends 'wafer/base.html' %}
+{% load i18n %}
+{% load sponsors %}
 {% load static from staticfiles %}
+{% block extra_head %}
+{% endblock%}
 
-
-{% block content %}
+{% block main_class %}index{% endblock %}
+{% block jumbotron_content %}
+  <div class="jumbotron jumbotron-fluid background-northgate">
+    <div class="container">
+      <h1 class="display-3">PyCon Zimbabwe is back!</h1>
+      <p class="lead">PyCon Zimbabwe 2018 will be held at Jameson Hotel, Harare on the 19th of October .</p>
+    </div>
+  </div>
 {% endblock %}
 
+{% block content %}
+  <div id="calls-to-action" class="row">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">PyCon Zimbabwe 2018</h2>
+          <div class="card-text">
+            <p>
+                The main conference which will feature talks will be held at the Jameson Hotel on Friday the 19th of October. tutorials
+                and workshops will be held at Muzinda Hub on the 20th of October.
+            </p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-info" href="#">Submint a talk proposal</a>
+          <a class="btn btn-success" href="#">Register for PyConZim</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Sponsor PyConZim</h2>
+          <div class="card-text">
+            <p>
+                PyConZim is organinzed by volunteers as a non-profit event. By sponsoring us you will make it possible
+                for us to bring as many people interested in the python programming language to PyConZim at a decent venue. By so doing
+                you will have access to the best Python developers in Zimbabwe and and the rest of the world.
+            </p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-info" href="#">Sponsors us!</a>
+            </a>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Buy PyConZim Ticket</h2>
+          <div class="card-text">
+            <p>
+                PyConZim is organinzed by volunteers as a non-profit event. By sponsoring us you will make it possible
+                for us to bring as many people interested in the python programming language to PyConZim at a decent venue. By so doing
+                you will have access to the best Python developers in Zimbabwe and and the rest of the world.
+            </p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-info" href="#">Sponsors us!</a>
+            </a>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- Sponsors -->
+  <div id="sponsors-section">
+    <div class="row">
+      <div class="col-lg-12">
+         <h1 id="sponsors">Sponsors</h1>
+      </div>
+    </div>
+    {% sponsors %}
+  </div>
+  <!-- End Sponsors -->
+
+  <!-- <1!-- Testimonials --1> -->
+  <!-- <div id="testimonials-section"> -->
+  <!--   <div class="row"> -->
+  <!--     <div class="col-lg-12"> -->
+  <!--       <h1 id="testimonials">Testimonials</h1> -->
+  <!--     </div> -->
+  <!--   </div> -->
+
+  <!--   <div class="row"> -->
+  <!--     <div class="col-lg-7"> -->
+  <!--       <div class="bs-component"> -->
+  <!--         <blockquote class="blockquote"> -->
+  <!--           <p> -->
+  <!--             DebConf has become one of the most important -->
+  <!--             conferences on my annual calendar, <b>and has -->
+  <!--             inspired me over the last two years to become more -->
+  <!--             involved with Debian</b>. -->
+  <!--             Debian is one of the most democratic and -->
+  <!--             egalitarian software freedom communities in -->
+  <!--             existence today. -->
+  <!--             <b>DebConf, as an annual event, showcases that -->
+  <!--             community and enables it to flourish</b>. -->
+  <!--             DebConf16 was no exception. -->
+  <!--             I encourage anyone who wants to examine first-hand -->
+  <!--             a good model of a functioning Free Software -->
+  <!--             community attend DebConf. -->
+  <!--           </p> -->
+  <!--           <p class="signature">Bradley M. Kuhn, Software Freedom Conservancy</p> -->
+  <!--         </blockquote> -->
+  <!--       </div> -->
+  <!--     </div> -->
+  <!--     <div class="col-lg-5"> -->
+  <!--       <div class="bs-component"> -->
+  <!--         <blockquote class="blockquote blockquote-reverse"> -->
+  <!--           <p> -->
+  <!--             DebConf is the annual conference for one of the -->
+  <!--             largest Open Source projects. -->
+  <!--             By annually sponsoring DebConf, credativ helps to -->
+  <!--             keep this important conference successful. -->
+  <!--             Being present at DebConf enables us to <b>connect, -->
+  <!--             stay in touch and collaborate with some of the -->
+  <!--             brightest minds in the industry</b>, both at a -->
+  <!--             management and technical level. -->
+  <!--           </p> -->
+  <!--           <p class="signature">Michael Meskes, credativ GmbH</p> -->
+  <!--         </blockquote> -->
+  <!--       </div> -->
+  <!--     </div> -->
+  <!--   </div> -->
+  <!-- </div> -->
+  <!-- End Testimonials -->
+{%endblock%}
